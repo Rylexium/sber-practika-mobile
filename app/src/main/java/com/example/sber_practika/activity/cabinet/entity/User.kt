@@ -50,5 +50,6 @@ object User {
         phone = ""
         dateOfBirthday = ""
         balanceBank = ""
+        listCards.clear()
     }
 }
