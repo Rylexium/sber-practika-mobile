@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.auth.fragments.BankCardFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconTint="?attr/colorPrimaryVariant"
+            app:startIconDrawable="@drawable/ic_baseline_credit_card_24"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/green_700"
+            >
+            <EditText
+                android:id="@+id/edittext_bankcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Номер банковской карты"
+                android:background="@android:color/transparent"
+                android:maxLines="1"
+                android:lines="1"
+                android:digits="0123456789"
+                android:inputType="phone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

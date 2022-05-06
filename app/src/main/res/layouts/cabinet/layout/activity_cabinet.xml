@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.sber_practika.utils.views.NonFocusingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.cabinet.CabinetActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="9dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Банковский счёт"
+            android:gravity="center"
+            android:elegantTextHeight="true"
+            android:textSize="20sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btn_bankNumber_to_bankNumber"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.45"
+                android:drawableTop="@drawable/ic_baseline_ballot_48"
+                android:drawableTint="@color/black_grey"
+                android:drawableTintMode="src_atop"
+                android:gravity="top"
+                android:text="Перевод с банковского счёта на другой банковский счёт\n"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_bankNumber_to_bankCard"
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_baseline_credit_card_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Перевод с банковского счёта на банковскую карту\n"
+                android:textAllCaps="false"
+                android:gravity="top"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_bankNumber_to_phone"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_phone_android_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Перевод с банковского счёта по номеру телефона\n"
+                android:textAllCaps="false"
+                android:gravity="top"
+                android:layout_marginEnd="10dp"
+                />
+            <Button
+                android:id="@+id/btn_personal_data_and_bankNumber"
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_account_balance_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Персональные данные и данные о банковском счёте"
+                android:textAllCaps="false"
+                android:gravity="top"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Банковские карты"
+            android:gravity="center"
+            android:elegantTextHeight="true"
+            android:textSize="20sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_bankCard_to_bankNumber"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_ballot_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Перевод c банковской карты на банковский счёт\n"
+                android:textAllCaps="false"
+                android:gravity="top"
+                android:layout_marginEnd="10dp"
+                />
+            <Button
+                android:id="@+id/btn_bankCard_to_bankCard"
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_credit_card_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Перевод c банковской карты на другую банковскую карту\n"
+                android:textAllCaps="false"
+                android:gravity="top"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_bankCard_to_phone"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_phone_android_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Перевод c банковской карты по номеру телефона\n"
+                android:textAllCaps="false"
+                android:gravity="top"
+                android:layout_marginEnd="10dp"
+                />
+            <Button
+                android:id="@+id/btn_all_my_transaction"
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_currency_exchange_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Все мои транзакции"
+                android:textAllCaps="false"
+                android:gravity="top"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Другое"
+            android:gravity="center"
+            android:elegantTextHeight="true"
+            android:textSize="20sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_who_like_me"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_favorite_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Кто мне нравится?"
+                android:textAllCaps="false"
+                android:gravity="top"
+                android:layout_marginEnd="10dp"
+                />
+            <Button
+                android:id="@+id/btn_about_me"
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="160dp"
+                android:drawableTop="@drawable/ic_baseline_settings_48"
+                android:drawableTintMode="src_atop"
+                android:drawableTint="@color/black_grey"
+                android:text="Обо мне"
+                android:textAllCaps="false"
+                android:gravity="top"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
+    </LinearLayout>
+
+</com.example.sber_practika.utils.views.NonFocusingScrollView>

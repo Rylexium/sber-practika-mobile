@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">sber-practika</string>
+    <string name="logInBankCard"><b><u>Через банковскую карту</u></b></string>
+    <string name="logInPhone"><b><u>Через номер телефона</u></b></string>
+    <string name="logInUsername"><b><u>Через логин</u></b></string>
+    <string name="rememberPassword"><b><u>Забыли пароль?</u></b></string>
+</resources>

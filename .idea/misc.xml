@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_ballot_24.xml" value="0.3015" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_https_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_invisible_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/admission_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/field_step_admission.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/fragment_distance.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/fragment_full_time.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/fragment_login_by_bank_card.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/fragment_login_by_phone.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layout/fragment_login_by_username.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/drawable/ic_baseline_person_24.xml" value="0.1595" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/drawable/ic_baseline_phone_24.xml" value="0.1595" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/layout/activity_transfer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/layout/fragment_bank_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/layout/fragment_bank_number.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/auth/layout/fragment_login_by_username.xml" value="0.15" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/drawable/ic_baseline_account_balance_24.xml" value="0.3015" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/drawable/ic_baseline_account_balance_48.xml" value="0.3015" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/drawable/ic_baseline_credit_card_48.xml" value="0.3015" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/drawable/ic_baseline_currency_ruble_24.xml" value="0.3075" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/layout/activity_cabinet.xml" value="0.25" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/layout/activity_transfer_bank_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/layout/activity_transfer_bank_number.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/cabinet/layout/fragment_bank_number.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/aleks/AndroidStudioProjects/sberpractika/app/src/main/res/layouts/support/layout/field_bank_card.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
