@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
-import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
 import com.example.sber_practika.activity.auth.fragments.PhoneFragment
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transfer.fragments.BankNumberFragment
