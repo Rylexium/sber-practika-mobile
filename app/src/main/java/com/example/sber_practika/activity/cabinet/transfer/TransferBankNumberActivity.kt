@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
@@ -11,10 +12,12 @@ import com.example.sber_practika.activity.auth.fragments.PhoneFragment
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transfer.fragments.BankNumberFragment
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
+import com.example.sber_practika.utils.Fields
 import com.example.sber_practika.utils.HideKeyboardClass
 
 class TransferBankNumberActivity : AppCompatActivity() {
     private lateinit var btnTransfer : Button
+    private lateinit var layoutBankNumber : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +43,9 @@ class TransferBankNumberActivity : AppCompatActivity() {
     private fun initComponents() {
         btnTransfer = findViewById(R.id.btnTransferBankNumber)
 
-        findViewById<TextView>(R.id.textview_bank_number).text = "Ваш банковский счёт : " + User.bankNumber
-        findViewById<TextView>(R.id.textview_phone).text = "Ваш номер телефона : " + User.phone
-        findViewById<TextView>(R.id.textview_bank_number_balance).text = "Баланс : " + BeautifulOutput.beautifulBalance(User.balanceBank) + " р."
+        layoutBankNumber = findViewById(R.id.layout_for_bank_number)
+
+        Fields.onAddBankNumberField(this, layoutBankNumber)
 
         supportFragmentManager.beginTransaction()
             .add(R.id.containerTransferBankNumber,

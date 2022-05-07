@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.sber_practika.utils.views.NonFocusingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.cabinet.transactions.TransactionTransferActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Выберите где хотите посмотреть транзакции"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp"
+            />
+        <LinearLayout
+            android:id="@+id/layout_of_bank_cards_and_bank_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            />
+    </LinearLayout>
+</com.example.sber_practika.utils.views.NonFocusingScrollView>

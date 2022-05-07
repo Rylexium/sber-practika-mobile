@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.LoginActivity
 import com.example.sber_practika.activity.cabinet.entity.User
+import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankNumberActivity
 
@@ -66,7 +67,9 @@ class CabinetActivity : AppCompatActivity() {
             startActivity(Intent(this@CabinetActivity, TransferBankCardActivity::class.java)
                 .putExtra("method", 3))
         }
-
+        btnAllMyTransaction.setOnClickListener {
+            startActivity(Intent(this@CabinetActivity, TransactionTransferActivity::class.java))
+        }
     }
 
     private fun initComponents() {

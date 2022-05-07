@@ -15,14 +15,16 @@ import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transfer.fragments.BankNumberFragment
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput.beautifulBalance
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput.beautifulIdBankCard
+import com.example.sber_practika.utils.Fields
 import com.example.sber_practika.utils.HideKeyboardClass
 import com.example.sber_practika.utils.ShowToast
 
 class TransferBankCardActivity : AppCompatActivity() {
     private lateinit var btnTransfer : Button
     private lateinit var layoutBankCards : LinearLayout
-    private var selectedBankCard : String? = null
-
+    companion object {
+        var selectedBankCard: String? = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer_bank_card)
@@ -58,28 +60,9 @@ class TransferBankCardActivity : AppCompatActivity() {
             .commit()
 
         User.listCards.forEach { card ->
-            onAddField(card.idCard, card.nameCard, card.dateCard,card.balanceCard.toString())
+            Fields.onAddBankCardField(card.idCard, card.nameCard, card.dateCard,card.balanceCard.toString(),
+                this, layoutBankCards)
         }
     }
 
-
-    private fun onAddField(bankCardId: String, nameOfUser: String,
-                           dateOfEnd: String, balance: String) {
-        val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val rowView: View = inflater.inflate(R.layout.field_bank_card, null)
-
-        val mainLayout = rowView.findViewById<LinearLayout>(R.id.layout_of_bank_card)
-
-        rowView.findViewById<TextView>(R.id.textview_bank_card_id).text = beautifulIdBankCard(bankCardId)
-        rowView.findViewById<TextView>(R.id.textview_name_of_user).text = nameOfUser
-        rowView.findViewById<TextView>(R.id.textivew_date_of_end).text = dateOfEnd
-        rowView.findViewById<TextView>(R.id.textview_bank_card_balance).text = beautifulBalance(balance) + " р."
-
-        mainLayout.setOnClickListener {
-            ShowToast.show(baseContext, "Выбрана карта : " + beautifulIdBankCard(bankCardId))
-            selectedBankCard = bankCardId
-        }
-
-        layoutBankCards.addView(rowView)
-    }
 }
