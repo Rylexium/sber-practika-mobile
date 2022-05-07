@@ -76,6 +76,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
                             android:layout_gravity="start"
+                            android:elegantTextHeight="true"
                             android:text="Банковская карта : 1234 1234 1234 1242"
                             android:textSize="17sp"
                             android:background="@color/black_grey"
@@ -105,7 +106,7 @@
                         android:layout_gravity="start"
                         android:background="@color/green_700">
                         <TextView
-                            android:id="@+id/textivew_where_transaction"
+                            android:id="@+id/textview_where_transaction"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Банковский счёт : 12432153125623165312"

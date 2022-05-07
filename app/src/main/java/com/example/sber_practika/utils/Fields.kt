@@ -41,10 +41,33 @@ object Fields {
 
         rowView.findViewById<TextView>(R.id.textview_bank_number).text = User.bankNumber
         rowView.findViewById<TextView>(R.id.textview_phone).text = User.phone
-        rowView.findViewById<TextView>(R.id.textview_bank_number_balance).text = "Баланс : " + BeautifulOutput.beautifulBalance(User.balanceBank) + " р."
+        rowView.findViewById<TextView>(R.id.textview_bank_number_balance).text = BeautifulOutput.beautifulBalance(User.balanceBank) + " р."
 
         mainLayout.setOnClickListener {
             ShowToast.show(activity.baseContext, "Выбран банковский счёт")
+        }
+
+        layout.addView(rowView, 0)
+    }
+
+    fun onAddTransactionTransferField(idTransfer: String, fromTransaction: String,
+                                      whereTransaction: String, valueTransaction: String,
+                                      dateTransaction : String,
+                                      activity: AppCompatActivity, layout : LinearLayout) {
+        val inflater = activity.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val rowView: View = inflater.inflate(R.layout.field_of_transfer_transaction, null)
+
+        val mainLayout = rowView.findViewById<LinearLayout>(R.id.layout_of_transaction_transfer)
+
+        rowView.findViewById<TextView>(R.id.textview_id_transaction).text = idTransfer
+        rowView.findViewById<TextView>(R.id.textview_from_transaction).text = fromTransaction
+        rowView.findViewById<TextView>(R.id.textview_where_transaction).text = whereTransaction
+        rowView.findViewById<TextView>(R.id.textview_value_transaction).text = valueTransaction
+        rowView.findViewById<TextView>(R.id.textview_date_transaction).text = dateTransaction
+
+
+        mainLayout.setOnClickListener {
+            ShowToast.show(activity.baseContext, idTransfer)
         }
 
         layout.addView(rowView, 0)
