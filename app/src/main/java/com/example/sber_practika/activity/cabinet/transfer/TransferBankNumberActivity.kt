@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
+import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
 import com.example.sber_practika.activity.auth.fragments.PhoneFragment
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transfer.controllers.TransferBankNumberController
@@ -68,6 +69,11 @@ class TransferBankNumberActivity : AppCompatActivity() {
         method = intent.getIntExtra("method", 1)
         layoutBankNumber = findViewById(R.id.layout_for_bank_number)
         value = findViewById(R.id.edittext_transfer_value_bank_number)
+
+        BankCardFragment.bankCard = ""
+        LoginByUsernameFragment.username = ""
+        PhoneFragment.phone = ""
+
         Fields.onAddBankNumberField(this, layoutBankNumber, false)
 
         supportFragmentManager.beginTransaction()

@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"
             android:text="Выберите где хотите посмотреть транзакции"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textSize="17sp"
+            android:paddingTop="10dp"
             android:paddingStart="9dp"
             android:paddingEnd="9dp"
             />

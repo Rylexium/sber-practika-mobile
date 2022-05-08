@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
+import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
 import com.example.sber_practika.activity.auth.fragments.PhoneFragment
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transfer.controllers.TransferBankCardController
@@ -70,6 +71,10 @@ class TransferBankCardActivity : AppCompatActivity() {
         btnTransfer = findViewById(R.id.btnTransferBankCard)
         layoutBankCards = findViewById(R.id.layout_of_bank_cards)
         value = findViewById(R.id.edittext_transfer_value_bank_card)
+
+        BankCardFragment.bankCard = ""
+        LoginByUsernameFragment.username = ""
+        PhoneFragment.phone = ""
 
         selectedBankCard = User.listCards.first().idCard
         if(selectedBankCard != null && selectedBankCard != "")

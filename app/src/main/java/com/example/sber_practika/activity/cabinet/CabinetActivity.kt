@@ -10,8 +10,12 @@ import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.LoginActivity
 import com.example.sber_practika.activity.auth.LoginActivity.Companion.pass
+import com.example.sber_practika.activity.auth.fragments.BankCardFragment
+import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
+import com.example.sber_practika.activity.auth.fragments.PhoneFragment
 import com.example.sber_practika.activity.auth.utils.AuthService
 import com.example.sber_practika.activity.cabinet.entity.BankCard
+import com.example.sber_practika.activity.cabinet.entity.Transactions
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.infoUser.InfoUserActivity
 import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
@@ -48,6 +52,10 @@ class CabinetActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         User.clearData()
+        Transactions.clearData()
+        BankCardFragment.bankCard = ""
+        LoginByUsernameFragment.username = ""
+        PhoneFragment.phone = ""
     }
 
     override fun onResume() {

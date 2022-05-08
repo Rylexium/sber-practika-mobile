@@ -1,18 +1,20 @@
 package com.example.sber_practika.activity.cabinet.transactions
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.cabinet.entity.Transaction
 import com.example.sber_practika.activity.cabinet.entity.Transactions
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
 import com.example.sber_practika.utils.Fields
+import com.example.sber_practika.utils.LoadingDialog
 import kotlinx.coroutines.launch
 
 class AllTransactionsActivity : AppCompatActivity() {
     private lateinit var containerTransactions : LinearLayout
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +24,8 @@ class AllTransactionsActivity : AppCompatActivity() {
 
     private fun initComponents() {
         containerTransactions = findViewById(R.id.container_for_transaction)
-
+        loadingDialog = LoadingDialog(this)
+        loadingDialog.startLoadingDialog()
         lifecycleScope.launch {
             var list: ArrayList<Transaction>? = null
             if (intent.getStringExtra("method") == "bankCard") {
@@ -42,6 +45,7 @@ class AllTransactionsActivity : AppCompatActivity() {
                 Fields.onAddTransactionTransferField(item.uuid, from, where, value, date,
                     this@AllTransactionsActivity, containerTransactions)
             }
+            loadingDialog.dismissDialog()
         }
     }
 }

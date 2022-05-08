@@ -158,6 +158,10 @@ class LoginActivity : AppCompatActivity() {
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                 finish()
+                BankCardFragment.bankCard = ""
+                LoginByUsernameFragment.username = ""
+                PhoneFragment.phone = ""
+                password.setText("")
                 User.clearData()
                 Transactions.clearData()
             }
