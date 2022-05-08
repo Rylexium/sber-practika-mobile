@@ -26,9 +26,9 @@ class InfoUserActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.textview_username).text = User.username
         findViewById<TextView>(R.id.textview_full_name).text = User.family + " " + User.name + " " + (if(User.patronymic == "null") "" else User.patronymic)
-        findViewById<TextView>(R.id.textview_email).text = if(User.email == "null") "" else User.email
+        findViewById<TextView>(R.id.textview_email).text = if(User.email == "null") "<Пусто>" else User.email
         findViewById<TextView>(R.id.textview_address).text = User.address
-        findViewById<TextView>(R.id.textview_date_of_birthday).text = if(User.dateOfBirthday == "null") "" else User.dateOfBirthday
+        findViewById<TextView>(R.id.textview_date_of_birthday).text = if(User.dateOfBirthday == "null") "<Пусто>" else User.dateOfBirthday
 
         Fields.onAddBankNumberField(this, containerBankNumber, null)
         User.listCards.forEach { card ->
