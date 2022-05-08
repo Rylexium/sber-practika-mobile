@@ -15,14 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sberpractika">
         <activity
+            android:name=".activity.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.cabinet.infoUser.InfoUserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transactions.AllTransactionsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transactions.TransactionTransferActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transfer.TransferBankCardActivity"
             android:exported="false"
@@ -37,14 +50,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.auth.LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
