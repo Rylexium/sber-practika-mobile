@@ -30,21 +30,34 @@
             <LinearLayout
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:background="@color/green_700">
+                android:orientation="vertical">
                 <TextView
-                    android:id="@+id/textview_id_transaction"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8dfebb7f-9e01-40c1-8b91-956c1fb28dd7"
-                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="Код транзакции"
                     android:elegantTextHeight="true"
                     android:textColor="@android:color/primary_text_dark_nodisable"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="3dp"
-                    android:background="@color/black_grey"
-                    android:clickable="false"
-                    android:enabled="false"
                     />
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:background="@color/green_700">
+                    <TextView
+                        android:id="@+id/textview_id_transaction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="8dfebb7f-9e01-40c1-8b91-956c1fb28dd7"
+                        android:gravity="center"
+                        android:elegantTextHeight="true"
+                        android:textColor="@android:color/primary_text_dark_nodisable"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/black_grey"
+                        android:clickable="false"
+                        android:enabled="false"
+                        />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,7 +91,7 @@
                             android:layout_gravity="start"
                             android:elegantTextHeight="true"
                             android:text="Банковская карта : 1234 1234 1234 1242"
-                            android:textSize="17sp"
+                            android:textSize="16sp"
                             android:background="@color/black_grey"
                             android:textColor="@android:color/primary_text_dark_nodisable"
                             android:enabled="false"
@@ -113,7 +126,7 @@
                             android:layout_marginBottom="3dp"
                             android:elegantTextHeight="true"
                             android:textColor="@android:color/primary_text_dark_nodisable"
-                            android:textSize="17sp"
+                            android:textSize="16sp"
                             android:background="@color/black_grey"
                             android:clickable="false"
                             android:enabled="false"
@@ -170,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:text="Дата перевода : "
                     android:elegantTextHeight="true"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:textColor="@android:color/primary_text_dark_nodisable"
                     />
                 <LinearLayout
@@ -182,10 +195,10 @@
                         android:id="@+id/textview_date_transaction"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="09:00:09 2022-05-07"
+                        android:text="2022-05-07 09:00:09"
                         android:elegantTextHeight="true"
                         android:textColor="@android:color/primary_text_dark_nodisable"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         android:background="@color/black_grey"
                         android:layout_marginBottom="3dp"
                         android:clickable="false"
