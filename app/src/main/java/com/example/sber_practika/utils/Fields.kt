@@ -24,7 +24,7 @@ object Fields {
     fun onAddBankCardField(bankCardId: String, nameOfUser: String,
                            dateOfEnd: String, balance: String,
                            activity: AppCompatActivity, layout : LinearLayout,
-                           isChekTransaction : Boolean) {
+                           isChekTransaction : Boolean? ) {
         val inflater = activity.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView: View = inflater.inflate(R.layout.field_bank_card, null)
 
@@ -36,28 +36,29 @@ object Fields {
         rowView.findViewById<TextView>(R.id.textview_date_of_end).text = dateOfEnd
         rowView.findViewById<TextView>(R.id.textview_bank_card_balance).text = BeautifulOutput.beautifulBalance(balance) + " р."
 
-        mainLayout.setOnClickListener {
-            if(!isChekTransaction) {
-                ShowToast.show(activity.baseContext, "Выбрана карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId))
-                selectedBankCard = bankCardId
-                activity.findViewById<TextView>(R.id.textview_select_bank_card).text = "Выбранная карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId)
-            }
-            else {
-                GlobalScope.launch {
-                    Transactions.listTransactionsOfBankCard[bankCardId] = downloadTransactionTransferByBankCard(bankCardId)
-                    Handler(Looper.getMainLooper()).post {
-                        activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                            .putExtra("method", "bankCard")
-                            .putExtra("id", bankCardId))
+        if(isChekTransaction != null) {
+            mainLayout.setOnClickListener {
+                if(!isChekTransaction) {
+                    ShowToast.show(activity.baseContext, "Выбрана карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId))
+                    selectedBankCard = bankCardId
+                    activity.findViewById<TextView>(R.id.textview_select_bank_card).text = "Выбранная карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId)
+                }
+                else {
+                    GlobalScope.launch {
+                        Transactions.listTransactionsOfBankCard[bankCardId] = downloadTransactionTransferByBankCard(bankCardId)
+                        Handler(Looper.getMainLooper()).post {
+                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                                .putExtra("method", "bankCard")
+                                .putExtra("id", bankCardId))
+                        }
                     }
                 }
             }
         }
-
         layout.addView(rowView)
     }
 
-    fun onAddBankNumberField(activity: AppCompatActivity, layout : LinearLayout, isChekTransaction : Boolean) {
+    fun onAddBankNumberField(activity: AppCompatActivity, layout : LinearLayout, isChekTransaction : Boolean? ) {
         val inflater = activity.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView: View = inflater.inflate(R.layout.field_bank_number, null)
 
@@ -67,18 +68,20 @@ object Fields {
         rowView.findViewById<TextView>(R.id.textview_phone).text = User.phone
         rowView.findViewById<TextView>(R.id.textview_bank_number_balance).text = BeautifulOutput.beautifulBalance(User.balanceBank) + " р."
 
-        mainLayout.setOnClickListener {
-            if(!isChekTransaction) ShowToast.show(activity.baseContext, "Выбран банковский счёт")
-            else {
-                GlobalScope.launch {
-                    val list = TransactionTransferController
-                        .downloadTransactionTransferByBankNumber(User.bankNumber) ?: return@launch
+        if(isChekTransaction != null) {
+            mainLayout.setOnClickListener {
+                if(!isChekTransaction) ShowToast.show(activity.baseContext, "Выбран банковский счёт")
+                else {
+                    GlobalScope.launch {
+                        val list = TransactionTransferController
+                            .downloadTransactionTransferByBankNumber(User.bankNumber) ?: return@launch
 
-                    Transactions.listTransactionsOfBankNumber = list
-                    Handler(Looper.getMainLooper()).post {
-                        activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                            .putExtra("method", "bankNumber")
-                            .putExtra("id", User.bankNumber))
+                        Transactions.listTransactionsOfBankNumber = list
+                        Handler(Looper.getMainLooper()).post {
+                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                                .putExtra("method", "bankNumber")
+                                .putExtra("id", User.bankNumber))
+                        }
                     }
                 }
             }

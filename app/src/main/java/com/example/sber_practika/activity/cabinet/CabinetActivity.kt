@@ -13,6 +13,7 @@ import com.example.sber_practika.activity.auth.LoginActivity.Companion.pass
 import com.example.sber_practika.activity.auth.utils.AuthService
 import com.example.sber_practika.activity.cabinet.entity.BankCard
 import com.example.sber_practika.activity.cabinet.entity.User
+import com.example.sber_practika.activity.cabinet.infoUser.InfoUserActivity
 import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankNumberActivity
@@ -108,6 +109,9 @@ class CabinetActivity : AppCompatActivity() {
         }
         btnAllMyTransaction.setOnClickListener {
             startActivity(Intent(this@CabinetActivity, TransactionTransferActivity::class.java))
+        }
+        btnPersonalDataAndBankNumber.setOnClickListener {
+            startActivity(Intent(this@CabinetActivity, InfoUserActivity::class.java))
         }
     }
 

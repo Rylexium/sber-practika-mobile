@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import android.view.MotionEvent
 import android.widget.*
@@ -120,11 +121,11 @@ class LoginActivity : AppCompatActivity() {
                 return@launch
             }
 
-            if(jsonNode!!["status"].asText() == "error") {
+            if(jsonNode!!["status"].asText() == "Invalid date or password") {
                 Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Неверный логин или пароль") }
                 return@launch
             }
-
+            Log.e("", jsonNode.toString())
             pass = password
 
             Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Успешная авторизация") }
