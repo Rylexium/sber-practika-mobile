@@ -1,4 +1,4 @@
-package com.example.sber_practika.activity.cabinet.transactions.entity
+package com.example.sber_practika.activity.cabinet.entity
 
 data class Transaction(val uuid : String,
                        val bankNumber1 : String, val bankNumber2: String,

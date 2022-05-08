@@ -1,5 +1,8 @@
 package com.example.sber_practika.utils
 
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
@@ -8,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController
-import com.example.sber_practika.activity.cabinet.transactions.entity.Transactions
+import com.example.sber_practika.activity.cabinet.entity.Transactions
+import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController.downloadTransactionTransferByBankCard
+import com.example.sber_practika.activity.cabinet.transfer.AllTransactionsActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity.Companion.selectedBankCard
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
 import kotlinx.coroutines.GlobalScope
@@ -37,11 +42,18 @@ object Fields {
                 selectedBankCard = bankCardId
             }
             else {
-                if(Transactions.listTransactionsOfBankCard == null)
+                if(Transactions.listTransactionsOfBankCard.isEmpty())
                     GlobalScope.launch {
-                        Transactions.listTransactionsOfBankCard = TransactionTransferController
-                            .downloadTransactionTransferByBankCard(bankCardId)
+                        Transactions.listTransactionsOfBankCard[bankCardId] = downloadTransactionTransferByBankCard(bankCardId)
+                        Handler(Looper.getMainLooper()).post {
+                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                                .putExtra("method", "bankCard")
+                                .putExtra("id", bankCardId))
+                        }
                     }
+                else activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                        .putExtra("method", "bankCard")
+                        .putExtra("id", bankCardId))
             }
         }
 
@@ -61,11 +73,21 @@ object Fields {
         mainLayout.setOnClickListener {
             if(!isChekTransaction) ShowToast.show(activity.baseContext, "Выбран банковский счёт")
             else {
-                if(Transactions.listTransactionsOfBankNumber == null)
+                if(Transactions.listTransactionsOfBankNumber.isEmpty())
                     GlobalScope.launch {
-                        Transactions.listTransactionsOfBankNumber = TransactionTransferController
-                            .downloadTransactionTransferByBankNumber(User.bankNumber)
+                        val list = TransactionTransferController
+                            .downloadTransactionTransferByBankNumber(User.bankNumber) ?: return@launch
+
+                        Transactions.listTransactionsOfBankNumber = list
+                        Handler(Looper.getMainLooper()).post {
+                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                                .putExtra("method", "bankNumber")
+                                .putExtra("id", User.bankNumber))
+                        }
                     }
+                else activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                        .putExtra("method", "bankNumber")
+                        .putExtra("id", User.bankNumber))
             }
         }
 

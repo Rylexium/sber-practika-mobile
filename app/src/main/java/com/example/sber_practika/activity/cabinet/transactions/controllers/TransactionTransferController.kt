@@ -5,7 +5,7 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.sber_practika.activity.cabinet.entity.User
-import com.example.sber_practika.activity.cabinet.transactions.entity.Transaction
+import com.example.sber_practika.activity.cabinet.entity.Transaction
 import com.fasterxml.jackson.databind.ObjectMapper
 import okhttp3.OkHttpClient
 import org.json.JSONObject
@@ -46,7 +46,8 @@ object TransactionTransferController {
                                     item["bankCard1"].asText(),
                                     item["bankCard2"].asText(),
                                     item["value"].asText(),
-                                    item["date"].asText()))
+                                    item["date"].asText())
+                            )
                         }
                         it.resume(res)
                     }

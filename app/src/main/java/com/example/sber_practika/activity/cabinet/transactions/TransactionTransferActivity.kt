@@ -2,16 +2,10 @@ package com.example.sber_practika.activity.cabinet.transactions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.LinearLayout
-import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.cabinet.entity.User
-import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController
-import com.example.sber_practika.activity.cabinet.transactions.entity.Transaction
-import com.example.sber_practika.activity.cabinet.transactions.entity.Transactions
 import com.example.sber_practika.utils.Fields
-import kotlinx.coroutines.launch
 
 class TransactionTransferActivity : AppCompatActivity() {
     private lateinit var layoutContainer : LinearLayout
