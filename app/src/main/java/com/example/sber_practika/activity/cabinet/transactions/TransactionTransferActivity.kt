@@ -14,11 +14,6 @@ class TransactionTransferActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction_transfer)
         initComponents()
-        applyEvents()
-    }
-
-    private fun applyEvents() {
-
     }
 
     private fun initComponents() {

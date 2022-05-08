@@ -15,6 +15,7 @@ import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
 import com.example.sber_practika.activity.cabinet.CabinetActivity
 import com.example.sber_practika.activity.auth.utils.AuthService
 import com.example.sber_practika.activity.cabinet.entity.BankCard
+import com.example.sber_practika.activity.cabinet.entity.Transactions
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.utils.HideKeyboardClass
 import com.example.sber_practika.utils.ShowToast
@@ -30,6 +31,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var buttonLogin : Button
     private var methodAuth : Int = 1
+
+    companion object {
+        var pass : String = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,6 +125,8 @@ class LoginActivity : AppCompatActivity() {
                 return@launch
             }
 
+            pass = password
+
             Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Успешная авторизация") }
             User.init(
                 jsonNode!!["body"]["bankNumber"].asText(),
@@ -137,13 +144,24 @@ class LoginActivity : AppCompatActivity() {
             jsonNode!!["body"]["cardList"].forEach { card ->
                 User.listCards.add(BankCard(card["id"].asText(), card["date"].asText(), card["name"].asText(), card["balance"].bigIntegerValue()))
             }
-
-            startActivity(Intent(this@LoginActivity, CabinetActivity::class.java)
-                .putExtra("expired", jsonNode!!["expired"].asText()))
+            timerUntilExit(jsonNode!!["expired"].asLong())
+            startActivity(Intent(this@LoginActivity, CabinetActivity::class.java))
 
         }
     }
-
+    private fun timerUntilExit(miles : Long) {
+        Thread {
+            Thread.sleep(miles)
+            Handler(Looper.getMainLooper()).post {
+                startActivity(Intent(this, LoginActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
+                User.clearData()
+                Transactions.clearData()
+            }
+        }.start()
+    }
 
 
     private fun initComponents(){

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sberpractika">
         <activity
-            android:name=".activity.cabinet.transfer.AllTransactionsActivity"
+            android:name=".activity.cabinet.transactions.AllTransactionsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.cabinet.transactions.TransactionTransferActivity"

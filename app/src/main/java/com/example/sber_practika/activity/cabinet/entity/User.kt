@@ -13,7 +13,7 @@ object User {
     lateinit var dateOfBirthday: String
     lateinit var balanceBank: String
     lateinit var jwt : String
-    var listCards : MutableList<BankCard> = ArrayList()
+    var listCards : MutableSet<BankCard> = HashSet()
 
     fun init(bankNumber : String,
              username : String,

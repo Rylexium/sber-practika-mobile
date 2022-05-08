@@ -15,7 +15,7 @@ import kotlin.coroutines.suspendCoroutine
 
 object TransferBankNumberController  {
 
-    suspend fun transferBankNumberToBankNumber(bankNumber1: String, bankNumber2: String, value : String) : String {
+    suspend fun transferToBankNumber(bankNumber1: String, bankNumber2: String, value : String) : String {
         return suspendCoroutine {
             AndroidNetworking.post("https://sber-practika.herokuapp.com/api/bankNumber_to_bankNumber")
                 .setPriority(Priority.IMMEDIATE)
@@ -41,7 +41,7 @@ object TransferBankNumberController  {
         }
     }
 
-    suspend fun transferBankNumberToBankCard(bankNumber: String, bankCard: String, value : String) : String {
+    suspend fun transferToBankCard(bankNumber: String, bankCard: String, value : String) : String {
         return suspendCoroutine {
             AndroidNetworking.post("https://sber-practika.herokuapp.com/api/bankNumber_to_bankCard")
                 .setPriority(Priority.IMMEDIATE)
@@ -67,7 +67,7 @@ object TransferBankNumberController  {
         }
     }
 
-    suspend fun transferBankNumberToPhone(bankNumber: String, phone: String, value : String) : String {
+    suspend fun transferToPhone(bankNumber: String, phone: String, value : String) : String {
         return suspendCoroutine {
             AndroidNetworking.post("https://sber-practika.herokuapp.com/api/bankNumber_to_phone")
                 .setPriority(Priority.IMMEDIATE)

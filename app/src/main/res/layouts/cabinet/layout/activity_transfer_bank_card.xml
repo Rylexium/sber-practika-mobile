@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/fdasfas"
         >
         <TextView
             android:layout_width="match_parent"
@@ -36,6 +37,16 @@
             android:paddingEnd="25dp"
             android:layout_gravity="center"
             >
+            <TextView
+                android:id="@+id/textview_select_bank_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выбранная карта : "
+                android:elegantTextHeight="true"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
+                android:textSize="16sp"
+                />
             <FrameLayout
                 android:id="@+id/containerTransferBankCard"
                 android:layout_width="match_parent"

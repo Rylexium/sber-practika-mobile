@@ -13,7 +13,7 @@ import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController
 import com.example.sber_practika.activity.cabinet.entity.Transactions
 import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController.downloadTransactionTransferByBankCard
-import com.example.sber_practika.activity.cabinet.transfer.AllTransactionsActivity
+import com.example.sber_practika.activity.cabinet.transactions.AllTransactionsActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity.Companion.selectedBankCard
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
 import kotlinx.coroutines.GlobalScope
@@ -33,27 +33,24 @@ object Fields {
         rowView.findViewById<TextView>(R.id.textview_bank_card_id).text =
             BeautifulOutput.beautifulIdBankCard(bankCardId)
         rowView.findViewById<TextView>(R.id.textview_name_of_user).text = nameOfUser
-        rowView.findViewById<TextView>(R.id.textivew_date_of_end).text = dateOfEnd
+        rowView.findViewById<TextView>(R.id.textview_date_of_end).text = dateOfEnd
         rowView.findViewById<TextView>(R.id.textview_bank_card_balance).text = BeautifulOutput.beautifulBalance(balance) + " р."
 
         mainLayout.setOnClickListener {
             if(!isChekTransaction) {
                 ShowToast.show(activity.baseContext, "Выбрана карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId))
                 selectedBankCard = bankCardId
+                activity.findViewById<TextView>(R.id.textview_select_bank_card).text = "Выбранная карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId)
             }
             else {
-                if(Transactions.listTransactionsOfBankCard.isEmpty())
-                    GlobalScope.launch {
-                        Transactions.listTransactionsOfBankCard[bankCardId] = downloadTransactionTransferByBankCard(bankCardId)
-                        Handler(Looper.getMainLooper()).post {
-                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                                .putExtra("method", "bankCard")
-                                .putExtra("id", bankCardId))
-                        }
+                GlobalScope.launch {
+                    Transactions.listTransactionsOfBankCard[bankCardId] = downloadTransactionTransferByBankCard(bankCardId)
+                    Handler(Looper.getMainLooper()).post {
+                        activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                            .putExtra("method", "bankCard")
+                            .putExtra("id", bankCardId))
                     }
-                else activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                        .putExtra("method", "bankCard")
-                        .putExtra("id", bankCardId))
+                }
             }
         }
 
@@ -73,21 +70,17 @@ object Fields {
         mainLayout.setOnClickListener {
             if(!isChekTransaction) ShowToast.show(activity.baseContext, "Выбран банковский счёт")
             else {
-                if(Transactions.listTransactionsOfBankNumber.isEmpty())
-                    GlobalScope.launch {
-                        val list = TransactionTransferController
-                            .downloadTransactionTransferByBankNumber(User.bankNumber) ?: return@launch
+                GlobalScope.launch {
+                    val list = TransactionTransferController
+                        .downloadTransactionTransferByBankNumber(User.bankNumber) ?: return@launch
 
-                        Transactions.listTransactionsOfBankNumber = list
-                        Handler(Looper.getMainLooper()).post {
-                            activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                                .putExtra("method", "bankNumber")
-                                .putExtra("id", User.bankNumber))
-                        }
+                    Transactions.listTransactionsOfBankNumber = list
+                    Handler(Looper.getMainLooper()).post {
+                        activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
+                            .putExtra("method", "bankNumber")
+                            .putExtra("id", User.bankNumber))
                     }
-                else activity.startActivity(Intent(activity, AllTransactionsActivity::class.java)
-                        .putExtra("method", "bankNumber")
-                        .putExtra("id", User.bankNumber))
+                }
             }
         }
 

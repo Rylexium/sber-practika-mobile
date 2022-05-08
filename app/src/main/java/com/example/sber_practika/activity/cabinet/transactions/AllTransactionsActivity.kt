@@ -1,8 +1,7 @@
-package com.example.sber_practika.activity.cabinet.transfer
+package com.example.sber_practika.activity.cabinet.transactions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.LinearLayout
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R

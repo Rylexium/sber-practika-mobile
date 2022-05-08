@@ -9,6 +9,9 @@ import com.example.sber_practika.R
 
 class BankNumberFragment : Fragment() {
 
+    companion object {
+        var bankNumber : String = ""
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -3,12 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.cabinet.transfer.AllTransactionsActivity">
+    tools:context=".activity.cabinet.transactions.AllTransactionsActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваши транзакции"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:elegantTextHeight="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp"
+            />
         <LinearLayout
             android:id="@+id/container_for_transaction"
             android:layout_width="match_parent"

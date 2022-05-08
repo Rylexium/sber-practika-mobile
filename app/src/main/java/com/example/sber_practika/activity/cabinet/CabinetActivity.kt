@@ -6,12 +6,19 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.auth.LoginActivity
+import com.example.sber_practika.activity.auth.LoginActivity.Companion.pass
+import com.example.sber_practika.activity.auth.utils.AuthService
+import com.example.sber_practika.activity.cabinet.entity.BankCard
 import com.example.sber_practika.activity.cabinet.entity.User
 import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankNumberActivity
+import com.example.sber_practika.utils.ShowToast
+import com.fasterxml.jackson.databind.JsonNode
+import kotlinx.coroutines.launch
 
 
 class CabinetActivity : AppCompatActivity() {
@@ -27,6 +34,7 @@ class CabinetActivity : AppCompatActivity() {
 
     private lateinit var btnWhoLikeMe : Button
     private lateinit var btnAboutMe : Button
+    private var isFirst = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +47,37 @@ class CabinetActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         User.clearData()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(isFirst){
+            isFirst = false
+            return
+        }
+        var jsonNode : JsonNode?
+        lifecycleScope.launch {
+            jsonNode = AuthService.authByPhone(User.phone, pass)
+            User.clearData()
+            User.init(
+                jsonNode!!["body"]["bankNumber"].asText(),
+                jsonNode!!["body"]["username"].asText(),
+                jsonNode!!["body"]["family"].asText(),
+                jsonNode!!["body"]["name"].asText(),
+                jsonNode!!["body"]["patronymic"].asText(),
+                jsonNode!!["body"]["email"].asText(),
+                jsonNode!!["body"]["address"].asText(),
+                jsonNode!!["body"]["phone"].asText(),
+                jsonNode!!["body"]["dateOfBirthday"].asText(),
+                jsonNode!!["body"]["balanceBank"].asText(),
+                jsonNode!!["token"].asText())
+
+            jsonNode!!["body"]["cardList"].forEach { card ->
+                User.listCards.add(BankCard(card["id"].asText(), card["date"].asText(), card["name"].asText(), card["balance"].bigIntegerValue()))
+            }
+
+        }
+
     }
 
     private fun applyEvents() {
@@ -85,20 +124,6 @@ class CabinetActivity : AppCompatActivity() {
 
         btnWhoLikeMe = findViewById(R.id.btn_who_like_me)
         btnAboutMe = findViewById(R.id.btn_about_me)
-
-        timerUntilExit(intent.getStringExtra("expired")!!.toLong())
     }
 
-    private fun timerUntilExit(miles : Long) {
-        Thread {
-            Thread.sleep(miles)
-            Handler(Looper.getMainLooper()).post {
-                startActivity(Intent(this@CabinetActivity, LoginActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                finish()
-                User.clearData()
-            }
-        }.start()
-    }
 }
