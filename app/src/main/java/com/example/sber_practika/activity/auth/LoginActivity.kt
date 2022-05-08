@@ -44,6 +44,12 @@ class LoginActivity : AppCompatActivity() {
         applyEvents()
     }
 
+    override fun onResume() {
+        super.onResume()
+        password.setText("")
+        pass = ""
+    }
+
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (currentFocus != null) {
             HideKeyboardClass.hideKeyboard(this)
