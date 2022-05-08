@@ -27,6 +27,7 @@
                 android:background="@android:color/transparent"
                 android:maxLines="1"
                 android:lines="1"
+                android:inputType="text"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
                 />
         </com.google.android.material.textfield.TextInputLayout>
