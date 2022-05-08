@@ -26,6 +26,7 @@
                 android:background="@android:color/transparent"
                 android:maxLines="1"
                 android:lines="1"
+                android:paddingBottom="@dimen/marginBottomEditText"
                 android:digits="0123456789"
                 android:inputType="phone"
                 />

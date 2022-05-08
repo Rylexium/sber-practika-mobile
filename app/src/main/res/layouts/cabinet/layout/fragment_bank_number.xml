@@ -19,6 +19,7 @@
             android:hint="Банковский номер"
             android:maxLines="1"
             android:lines="1"
+            android:paddingBottom="@dimen/marginBottomEditText"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -66,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Сумма"
                     android:background="@android:color/transparent"
+                    android:paddingBottom="@dimen/marginBottomEditText"
                     android:maxLines="1"
                     android:lines="1"
                     android:digits="0123456789"

@@ -131,7 +131,7 @@ class LoginActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Неверный логин или пароль") }
                 return@launch
             }
-            Log.e("", jsonNode.toString())
+
             pass = password
 
             Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Успешная авторизация") }

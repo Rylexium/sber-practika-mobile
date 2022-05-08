@@ -43,6 +43,7 @@
                     android:lines="1"
                     android:digits="0123456789"
                     android:inputType="phone"
+                    android:paddingBottom="@dimen/marginBottomEditText"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <Button
