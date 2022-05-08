@@ -45,7 +45,7 @@ class TransferBankNumberActivity : AppCompatActivity() {
 
         layoutBankNumber = findViewById(R.id.layout_for_bank_number)
 
-        Fields.onAddBankNumberField(this, layoutBankNumber)
+        Fields.onAddBankNumberField(this, layoutBankNumber, false)
 
         supportFragmentManager.beginTransaction()
             .add(R.id.containerTransferBankNumber,

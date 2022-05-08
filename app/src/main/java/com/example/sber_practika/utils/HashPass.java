@@ -9,7 +9,6 @@ public class HashPass {
     public static String sha256(String base) {
         try{
             base += STATIC_SALT;
-            System.out.println(base);
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
             final byte[] hash = digest.digest(base.getBytes(StandardCharsets.UTF_8));
             final StringBuilder hexString = new StringBuilder();

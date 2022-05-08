@@ -61,7 +61,7 @@ class TransferBankCardActivity : AppCompatActivity() {
 
         User.listCards.forEach { card ->
             Fields.onAddBankCardField(card.idCard, card.nameCard, card.dateCard,card.balanceCard.toString(),
-                this, layoutBankCards)
+                this, layoutBankCards, false)
         }
     }
 

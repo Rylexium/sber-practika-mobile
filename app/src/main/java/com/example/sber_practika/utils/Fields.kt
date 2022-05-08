@@ -7,13 +7,19 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sber_practika.R
 import com.example.sber_practika.activity.cabinet.entity.User
+import com.example.sber_practika.activity.cabinet.transactions.controllers.TransactionTransferController
+import com.example.sber_practika.activity.cabinet.transactions.entity.Transactions
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity.Companion.selectedBankCard
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 object Fields {
 
     fun onAddBankCardField(bankCardId: String, nameOfUser: String,
-                           dateOfEnd: String, balance: String, activity: AppCompatActivity, layout : LinearLayout) {
+                           dateOfEnd: String, balance: String,
+                           activity: AppCompatActivity, layout : LinearLayout,
+                           isChekTransaction : Boolean) {
         val inflater = activity.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView: View = inflater.inflate(R.layout.field_bank_card, null)
 
@@ -26,14 +32,23 @@ object Fields {
         rowView.findViewById<TextView>(R.id.textview_bank_card_balance).text = BeautifulOutput.beautifulBalance(balance) + " р."
 
         mainLayout.setOnClickListener {
-            ShowToast.show(activity.baseContext, "Выбрана карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId))
-            selectedBankCard = bankCardId
+            if(!isChekTransaction) {
+                ShowToast.show(activity.baseContext, "Выбрана карта : " + BeautifulOutput.beautifulIdBankCard(bankCardId))
+                selectedBankCard = bankCardId
+            }
+            else {
+                if(Transactions.listTransactionsOfBankCard == null)
+                    GlobalScope.launch {
+                        Transactions.listTransactionsOfBankCard = TransactionTransferController
+                            .downloadTransactionTransferByBankCard(bankCardId)
+                    }
+            }
         }
 
         layout.addView(rowView)
     }
 
-    fun onAddBankNumberField(activity: AppCompatActivity, layout : LinearLayout) {
+    fun onAddBankNumberField(activity: AppCompatActivity, layout : LinearLayout, isChekTransaction : Boolean) {
         val inflater = activity.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView: View = inflater.inflate(R.layout.field_bank_number, null)
 
@@ -44,7 +59,14 @@ object Fields {
         rowView.findViewById<TextView>(R.id.textview_bank_number_balance).text = BeautifulOutput.beautifulBalance(User.balanceBank) + " р."
 
         mainLayout.setOnClickListener {
-            ShowToast.show(activity.baseContext, "Выбран банковский счёт")
+            if(!isChekTransaction) ShowToast.show(activity.baseContext, "Выбран банковский счёт")
+            else {
+                if(Transactions.listTransactionsOfBankNumber == null)
+                    GlobalScope.launch {
+                        Transactions.listTransactionsOfBankNumber = TransactionTransferController
+                            .downloadTransactionTransferByBankNumber(User.bankNumber)
+                    }
+            }
         }
 
         layout.addView(rowView, 0)
