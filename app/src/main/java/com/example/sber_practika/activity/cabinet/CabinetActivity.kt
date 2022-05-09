@@ -2,13 +2,10 @@ package com.example.sber_practika.activity.cabinet
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
-import com.example.sber_practika.activity.auth.LoginActivity
 import com.example.sber_practika.activity.auth.LoginActivity.Companion.pass
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
 import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
@@ -21,7 +18,7 @@ import com.example.sber_practika.activity.cabinet.infoUser.InfoUserActivity
 import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankNumberActivity
-import com.example.sber_practika.utils.ShowToast
+import com.example.sber_practika.utils.ShowCustomDialog
 import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.launch
 
@@ -50,12 +47,17 @@ class CabinetActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        User.clearData()
-        Transactions.clearData()
-        BankCardFragment.bankCard = ""
-        LoginByUsernameFragment.username = ""
-        PhoneFragment.phone = ""
+        ShowCustomDialog().showDialog(
+            this, "Вы действительно хотите выйти?",
+            "Да", "Нет")
+            .setOnYes {
+                super.onBackPressed()
+                User.clearData()
+                Transactions.clearData()
+                BankCardFragment.bankCard = ""
+                LoginByUsernameFragment.username = ""
+                PhoneFragment.phone = ""
+            }
     }
 
     override fun onResume() {
