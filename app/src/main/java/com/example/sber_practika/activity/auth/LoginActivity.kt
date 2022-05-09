@@ -67,27 +67,9 @@ class LoginActivity : AppCompatActivity() {
             }
             auth(param, password.text.toString())
         }
-        loginByPhone.setOnClickListener {
-            selectMethodAuth(1)
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.containerLogin, PhoneFragment())
-                .commit()
-            this.currentFocus?.clearFocus()
-        }
-        loginByUsername.setOnClickListener {
-            selectMethodAuth(2)
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.containerLogin, LoginByUsernameFragment())
-                .commit()
-            this.currentFocus?.clearFocus()
-        }
-        loginByBankCard.setOnClickListener {
-            selectMethodAuth(3)
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.containerLogin, BankCardFragment())
-                .commit()
-            this.currentFocus?.clearFocus()
-        }
+        loginByPhone.setOnClickListener { selectMethodAuth(1) }
+        loginByUsername.setOnClickListener { selectMethodAuth(2) }
+        loginByBankCard.setOnClickListener { selectMethodAuth(3) }
         rememberPassword.setOnClickListener { }
     }
 
@@ -97,18 +79,31 @@ class LoginActivity : AppCompatActivity() {
                 loginByPhone.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_check_24, 0, R.drawable.ic_baseline_invisible_24, 0)
                 loginByUsername.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
                 loginByBankCard.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.containerLogin, PhoneFragment())
+                    .commit()
             }
             2 -> {
                 loginByPhone.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
                 loginByUsername.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_check_24, 0, R.drawable.ic_baseline_invisible_24, 0)
                 loginByBankCard.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.containerLogin, LoginByUsernameFragment())
+                    .commit()
             }
             else -> {
                 loginByPhone.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
                 loginByUsername.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
                 loginByBankCard.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_check_24, 0, R.drawable.ic_baseline_invisible_24, 0)
+
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.containerLogin, BankCardFragment())
+                    .commit()
             }
         }
+        this.currentFocus?.clearFocus()
         methodAuth = method
     }
 
