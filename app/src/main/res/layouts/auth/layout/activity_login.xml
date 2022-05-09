@@ -17,7 +17,7 @@
         >
         <View
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             />
         <TextView
             android:layout_width="match_parent"
@@ -86,7 +86,9 @@
             android:paddingEnd="25dp"
             android:gravity="center"
             >
+            
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textLoginByUsername"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -94,10 +96,12 @@
                 android:elegantTextHeight="true"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:paddingTop="9dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textLoginByPhone"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -105,10 +109,12 @@
                 android:gravity="center"
                 android:text="@string/logInPhone"
                 android:textSize="16sp"
-                android:paddingTop="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textLoginByBankCard"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -116,10 +122,12 @@
                 android:elegantTextHeight="true"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:paddingTop="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 />
 
             <TextView
+                android:foreground="?attr/selectableItemBackground"
                 android:id="@+id/textRememberPassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -127,7 +135,8 @@
                 android:elegantTextHeight="true"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:paddingTop="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 />
         </LinearLayout>
     </LinearLayout>
