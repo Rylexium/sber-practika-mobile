@@ -71,6 +71,7 @@
                     android:lines="1"
                     android:digits="0123456789"
                     android:inputType="phone"
+                    android:maxLength="10"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <Button

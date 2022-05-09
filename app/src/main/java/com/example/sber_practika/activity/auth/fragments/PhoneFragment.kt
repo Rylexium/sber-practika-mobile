@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import com.example.sber_practika.R
+import com.example.sber_practika.utils.PhoneTextFormatter
 
 class PhoneFragment : Fragment() {
 
@@ -18,7 +19,10 @@ class PhoneFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_phone, container, false)
+        val binding = inflater.inflate(R.layout.fragment_phone, container, false)
+        val editPhone = binding.findViewById<EditText>(R.id.edittext_phone)
+        editPhone.addTextChangedListener(PhoneTextFormatter(editPhone, "8-###-##-##-###"))
+        return binding
     }
 
     override fun onPause() {

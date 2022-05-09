@@ -117,10 +117,11 @@ class LoginActivity : AppCompatActivity() {
             || param.length <= 2 || password.length <= 2 ) return
         var jsonNode : JsonNode?
         lifecycleScope.launch {
+            val res = param.replace(" ", "").replace("-", "")
             jsonNode = when (methodAuth) {
-                1 -> AuthService.authByPhone(param, password) //phone
-                2 -> AuthService.authByUsername(param, password) //username
-                else -> AuthService.authByBankCard(param, password) //bankcard
+                1 -> AuthService.authByPhone(res, password) //phone
+                2 -> AuthService.authByUsername(res, password) //username
+                else -> AuthService.authByBankCard(res, password) //bankcard
             }
             if(jsonNode == null) {
                 Handler(Looper.getMainLooper()).post { ShowToast.show(baseContext, "Проблемы с сервером") }

@@ -51,11 +51,11 @@ class TransferBankNumberActivity : AppCompatActivity() {
                         value.text.toString())
                     2 -> TransferBankNumberController.transferToBankCard(
                         User.bankNumber,
-                        findViewById<TextView>(R.id.edittext_bankcard).text.toString(),
+                        findViewById<TextView>(R.id.edittext_bankcard).text.toString().replace(" ", ""),
                         value.text.toString())
                     else -> TransferBankNumberController.transferToPhone(
                         User.bankNumber,
-                        findViewById<TextView>(R.id.edittext_phone).text.toString(),
+                        findViewById<TextView>(R.id.edittext_phone).text.toString().replace("-", ""),
                         value.text.toString())
                 }
                 ShowToast.show(baseContext, message)

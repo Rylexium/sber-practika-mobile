@@ -27,7 +27,7 @@
                 android:maxLines="1"
                 android:lines="1"
                 android:paddingBottom="@dimen/marginBottomEditText"
-                android:digits="0123456789"
+                android:digits="012345-6789"
                 android:inputType="phone"
                 />
         </com.google.android.material.textfield.TextInputLayout>
