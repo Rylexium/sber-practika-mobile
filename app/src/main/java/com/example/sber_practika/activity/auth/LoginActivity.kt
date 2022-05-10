@@ -183,7 +183,7 @@ class LoginActivity : AppCompatActivity() {
 
         selectMethodAuth(2)
         supportFragmentManager.beginTransaction()
-            .add(R.id.containerLogin, LoginByUsernameFragment())
+            .replace(R.id.containerLogin, LoginByUsernameFragment())
             .commit()
     }
 }
