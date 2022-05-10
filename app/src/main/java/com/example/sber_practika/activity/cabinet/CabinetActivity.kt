@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sber_practika.R
+import com.example.sber_practika.activity.auth.LoginActivity
 import com.example.sber_practika.activity.auth.LoginActivity.Companion.pass
 import com.example.sber_practika.activity.auth.fragments.BankCardFragment
 import com.example.sber_practika.activity.auth.fragments.LoginByUsernameFragment
@@ -51,7 +52,10 @@ class CabinetActivity : AppCompatActivity() {
             this, "Вы действительно хотите выйти?",
             "Да", "Нет")
             .setOnYes {
-                super.onBackPressed()
+                startActivity(Intent(this@CabinetActivity, LoginActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
                 User.clearData()
                 Transactions.clearData()
                 BankCardFragment.bankCard = ""

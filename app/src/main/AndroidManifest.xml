@@ -27,30 +27,37 @@
         <activity
             android:name=".activity.cabinet.infoUser.InfoUserActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transactions.AllTransactionsActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transactions.TransactionTransferActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transfer.TransferBankCardActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.transfer.TransferBankNumberActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.cabinet.CabinetActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.auth.LoginActivity"
             android:exported="false"
+            android:launchMode = "singleTop"
             android:screenOrientation="portrait" />
     </application>
 
