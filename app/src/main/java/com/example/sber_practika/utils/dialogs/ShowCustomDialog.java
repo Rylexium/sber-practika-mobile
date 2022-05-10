@@ -1,13 +1,11 @@
-package com.example.sber_practika.utils;
+package com.example.sber_practika.utils.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sber_practika.R;

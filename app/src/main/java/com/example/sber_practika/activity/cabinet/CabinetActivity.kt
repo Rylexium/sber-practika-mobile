@@ -19,7 +19,7 @@ import com.example.sber_practika.activity.cabinet.infoUser.InfoUserActivity
 import com.example.sber_practika.activity.cabinet.transactions.TransactionTransferActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankCardActivity
 import com.example.sber_practika.activity.cabinet.transfer.TransferBankNumberActivity
-import com.example.sber_practika.utils.ShowCustomDialog
+import com.example.sber_practika.utils.dialogs.ShowCustomDialog
 import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.launch
 
@@ -66,7 +66,7 @@ class CabinetActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if(isFirst){
+        if(isFirst) {
             isFirst = false
             return
         }

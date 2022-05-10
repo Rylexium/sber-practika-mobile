@@ -1,4 +1,4 @@
-package com.example.sber_practika.utils;
+package com.example.sber_practika.utils.dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;

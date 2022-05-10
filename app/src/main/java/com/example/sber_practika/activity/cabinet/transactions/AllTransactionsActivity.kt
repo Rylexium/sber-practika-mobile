@@ -9,7 +9,7 @@ import com.example.sber_practika.activity.cabinet.entity.Transaction
 import com.example.sber_practika.activity.cabinet.entity.Transactions
 import com.example.sber_practika.activity.cabinet.transfer.util.BeautifulOutput
 import com.example.sber_practika.utils.Fields
-import com.example.sber_practika.utils.LoadingDialog
+import com.example.sber_practika.utils.dialogs.LoadingDialog
 import kotlinx.coroutines.launch
 
 class AllTransactionsActivity : AppCompatActivity() {
@@ -24,7 +24,8 @@ class AllTransactionsActivity : AppCompatActivity() {
 
     private fun initComponents() {
         containerTransactions = findViewById(R.id.container_for_transaction)
-        loadingDialog = LoadingDialog(this)
+        loadingDialog =
+            LoadingDialog(this)
         loadingDialog.startLoadingDialog()
         lifecycleScope.launch {
             var list: ArrayList<Transaction>? = null
