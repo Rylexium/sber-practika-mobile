@@ -183,14 +183,14 @@
             android:orientation="horizontal"
             >
             <Button
-                android:id="@+id/btn_who_like_me"
+                android:id="@+id/btn_what_like_me"
                 android:layout_width="0dp"
                 android:layout_weight="0.45"
                 android:layout_height="160dp"
                 android:drawableTop="@drawable/ic_baseline_favorite_48"
                 android:drawableTintMode="src_atop"
                 android:drawableTint="@color/black_grey"
-                android:text="Кто мне нравится?"
+                android:text="Что мне нравится?"
                 android:textAllCaps="false"
                 android:gravity="top"
                 android:layout_marginEnd="10dp"

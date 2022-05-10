@@ -35,7 +35,7 @@ class CabinetActivity : AppCompatActivity() {
     private lateinit var btnBankCardToPhone : Button
     private lateinit var btnAllMyTransaction : Button
 
-    private lateinit var btnWhoLikeMe : Button
+    private lateinit var btnWhatLikeMe : Button
     private lateinit var btnAboutMe : Button
     private var isFirst = true
 
@@ -140,7 +140,7 @@ class CabinetActivity : AppCompatActivity() {
         btnBankCardToPhone = findViewById(R.id.btn_bankCard_to_phone)
         btnAllMyTransaction = findViewById(R.id.btn_all_my_transaction)
 
-        btnWhoLikeMe = findViewById(R.id.btn_who_like_me)
+        btnWhatLikeMe = findViewById(R.id.btn_what_like_me)
         btnAboutMe = findViewById(R.id.btn_about_me)
     }
 
