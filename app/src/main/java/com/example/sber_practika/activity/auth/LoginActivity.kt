@@ -182,8 +182,5 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin = findViewById(R.id.button_login)
 
         selectMethodAuth(2)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.containerLogin, LoginByUsernameFragment())
-            .commit()
     }
 }
