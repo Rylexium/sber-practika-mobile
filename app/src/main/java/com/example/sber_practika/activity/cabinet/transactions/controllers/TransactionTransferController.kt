@@ -41,10 +41,10 @@ object TransactionTransferController {
                         jsonNode["transactions"].forEach { item ->
                             res.add(
                                 Transaction(item["uuid"].asText(),
-                                    item["bankNumber1"].asText(),
-                                    item["bankNumber2"].asText(),
-                                    item["bankCard1"].asText(),
-                                    item["bankCard2"].asText(),
+                                    item["senderBankNumber"].asText(),
+                                    item["recipientBankNumber"].asText(),
+                                    item["senderBankCard"].asText(),
+                                    item["recipientBankCard"].asText(),
                                     item["value"].asText(),
                                     item["date"].asText())
                             )

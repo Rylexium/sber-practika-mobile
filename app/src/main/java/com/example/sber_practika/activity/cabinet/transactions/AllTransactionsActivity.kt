@@ -36,11 +36,11 @@ class AllTransactionsActivity : AppCompatActivity() {
             }
             list?.forEach { item ->
                 val from =
-                    if(item.bankNumber1 == "null") "Банковская карта : " + BeautifulOutput.beautifulIdBankCard(item.bankCard1)
-                    else "Банковский счёт : " + item.bankNumber1
+                    if(item.senderBankNumber == "null") "Банковская карта : " + BeautifulOutput.beautifulIdBankCard(item.senderBankCard)
+                    else "Банковский счёт : " + item.senderBankNumber
                 val where =
-                    if(item.bankNumber2 == "null") "Банковская карта : " + BeautifulOutput.beautifulIdBankCard(item.bankCard2)
-                    else "Банковский счёт : " + item.bankNumber2
+                    if(item.recipientBankNumber == "null") "Банковская карта : " + BeautifulOutput.beautifulIdBankCard(item.recipientBankCard)
+                    else "Банковский счёт : " + item.recipientBankNumber
                 val value = BeautifulOutput.beautifulBalance(item.value) + " р."
                 val date = item.date.subSequence(0, 10).toString() + " " + item.date.subSequence(11, 19)
                 Fields.onAddTransactionTransferField(item.uuid, from, where, value, date,
