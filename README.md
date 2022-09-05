@@ -1,4 +1,5 @@
 # Клиентское приложения для backend'a sber-practika
+Ссылка на backend приложение : https://github.com/Rylexium/sber-practika
 __Примеры работы приложения__
   - Окно загрузки (splash screen)
   * ![image](https://user-images.githubusercontent.com/84678136/188431438-54c580e7-e173-46ff-bb61-9c3c54733658.png)
